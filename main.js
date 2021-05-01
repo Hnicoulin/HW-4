@@ -1,8 +1,32 @@
-document.addEventListener("DOMContentLoaded", function (event) {
+let inputname = document.getElementById("2moviename").value;
+ 
+let inputrating = document.getElementById("2rating").value;
 
-    document.getElementById("button1").addEventListener("click", function () {
+const inputmovie = new movieobj(inputname, inputrating);
 
-        document.getElementById("textbox1").value = "success";
-    });
-});
+let movieinfo = new Array();
 
+
+function formSubmitEvent(){
+  console.log(inputmovie); 
+  vaiLdate(inputmovie)
+    if (vaiLdate(inputmovie) == false){
+  alert("Movie name must be filled out and the rating must be between 1 - 5.")
+    }
+    else{
+      movieinfo.push(inputmovie)
+    }
+}
+   
+
+function showMovieEvent(){
+  let xs;
+  let displaymovie = [];
+  let ps = getAll();
+  for (i = 0; i<movieinfo.length; i++){
+    displaymovie.push(ps)
+  xs = xs+ displaymovie[i]+"<br>";
+  }
+  document.getElementById('renderList').innerHTML = xs;
+  
+}
